@@ -77,7 +77,7 @@ flowchart TB
     class CRITIC,RESEARCH optional
 ```
 
-**Зелёные ромбы** — точки, где пользователь утверждает артефакт перед переходом дальше. **Пунктирные блоки** — опциональные агенты (`/deck-critic`, `/deck-research`, а также `/deck-resume` для возврата к незаконченной презентации): они спроектированы в [архитектуре](docs/ARCHITECTURE.md#опциональные-агенты), команды для них — в roadmap.
+**Зелёные ромбы** — точки, где пользователь утверждает артефакт перед переходом дальше. **Пунктирные блоки** — опциональные агенты (`/deck-critic`, `/deck-research`, а также `/deck-resume` для возврата к незаконченной презентации): они спроектированы в [архитектуре](ARCHITECTURE.md#опциональные-агенты), команды для них — в roadmap.
 
 ## Этапы пайплайна
 
@@ -114,13 +114,14 @@ flowchart TB
 - **Режим пайплайна — per-deck.** Файл `.mode` (`autonomous` / `manual`) определяет, переходят ли команды к следующему этапу сами или спрашивают разрешения.
 - **Заголовок = месседж, не тема.** «Запускаем AI Lab через месяц» — да. «О формате AI Lab» — нет.
 
-Полные обоснования — в [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Полные обоснования — в [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Структура репозитория
 
 ```
 .
 ├── CLAUDE.md                 # инструкции проекта для Claude Code
+├── ARCHITECTURE.md           # полная архитектура и обоснования решений
 ├── commands/                 # слэш-команды → скопировать в ~/.claude/commands/
 │   ├── deck-start.md         #   этап 0: бриф
 │   ├── storyline.md          #   этап 1: каркас
@@ -129,9 +130,7 @@ flowchart TB
 ├── decks/
 │   └── _template/            # эталон папки новой презентации
 ├── templates/                # библиотека многоразовых PPTX-эталонов (своя у каждого)
-├── style/                    # общие технические правила сборки
-└── docs/
-    └── ARCHITECTURE.md       # полная архитектура и обоснования решений
+└── style/                    # общие технические правила сборки
 ```
 
 Каждая презентация живёт в своей папке `decks/YYYY-MM-DD-<имя>/` со всеми артефактами от брифа до финального PPTX.
@@ -157,7 +156,7 @@ python3 -m venv ~/presentations/.venv
 
 ## Перенос в Claude.app
 
-Та же система работает и в облачном Claude как Project: `CLAUDE.md` → Custom Instructions, слэш-команды → Skills, `python-pptx` → Code Execution. Таблица соответствий — в [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#версия-в-claudeapp-project-облако).
+Та же система работает и в облачном Claude как Project: `CLAUDE.md` → Custom Instructions, слэш-команды → Skills, `python-pptx` → Code Execution. Таблица соответствий — в [ARCHITECTURE.md](ARCHITECTURE.md#версия-в-claudeapp-project-облако).
 
 ## Лицензия
 
