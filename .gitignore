@@ -1,0 +1,14 @@
+# personal decks never go to the repo — only the template
+decks/*
+!decks/_template/
+
+# python env and build leftovers
+.venv/
+__pycache__/
+_build.py
+
+# real PPTX templates may contain private material
+templates/*.pptx
+
+# macOS
+.DS_Store
